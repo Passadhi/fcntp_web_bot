@@ -1,0 +1,184 @@
+{{!--
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Отправка фотографии на сервер</title>
+</head>
+
+<body>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="photo" accept="image/*">
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+
+</html> --}}
+
+{{!--
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Загрузка файла</title>
+</head>
+
+<body>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="photo">
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+
+</html> --}}
+
+
+
+{{!--
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Загрузка файлов</title>
+</head>
+
+<body>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="photos" accept="image/*" multiple>
+        <input type="file" name="photos" accept="image/*" multiple>
+        <input type="file" name="photos" accept="image/*" multiple>
+        <input type="file" name="photos" accept="image/*" multiple>
+        <input type="file" name="photos" accept="image/*" multiple>
+        <input type="file" name="photos" accept="image/*" multiple>
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+
+</html> --}}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Отправка данных события и фотографий </title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+
+        form {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label,
+        select,
+        input,
+        textarea {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        select {
+            height: 40px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 20px;
+
+
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/upload" method="post" enctype="multipart/form-data" {{!-- id="uploadForm" --}}>
+        <label for="direction">Выберите ваше направление:</label>
+        <select name="direction" id="direction">
+            <option value="Сельское хозяйство">Сельское хозяйство</option>
+            <option value="СиНИ">СиНИ</option>
+            <option value="Прогнозирование и статистика">Прогнозирование и статистика</option>
+            <option value="Электроника">Электроника</option>
+            <option value="Приборка">Приборка</option>
+            <option value="КНТП">КНТП</option>
+            <option value="ПИАМ">ПИАМ</option>
+            <option value="СНО">СНО</option>
+            <option value="Кадры и мс">Кадры и мс</option>
+            <option value="Фарма">Фарма</option>
+            <option value="ГенТех">ГенТех</option>
+            <option value="НаучПоп">НаучПоп</option>
+            <option value="ГЗ 2.0">ГЗ 2.0</option>
+        </select><br><br>
+
+        <label for="date">Укажите дату планируемой публикации:</label>
+        <input type="date" id="date" name="date"><br><br>
+
+        <label for="theme">Обозначьте тему инфоповода:</label>
+        <input type="text" id="theme" name="theme"><br><br>
+
+        <label for="text">Опишите кратко инфоповод:</label>
+        <textarea id="text" name="text"></textarea>
+
+        <label for="photos">Выберите фотографии:</label><br>
+        <input type="file" name="photos" accept="image/*" id="button" multiple><br>
+        <input type="file" name="photos" accept="image/*" id="button" multiple><br>
+        <input type="file" name="photos" accept="image/*" id="button" multiple><br>
+        <input type="file" name="photos" accept="image/*" id="button" multiple><br>
+        <input type="file" name="photos" accept="image/*" id="button" multiple><br>
+        <input type="file" name="photos" accept="image/*" id="button" multiple><br><br>
+
+        <button type="submit">Отправить данные и фотографии</button>
+    </form>
+
+    {{!--
+    <script></script>
+    document.getElementById('uploadForm').addEventListener('submit', function () {
+    alert('Ваше сообщение отправлено');
+    document.getElementById('direction').value = '';
+    document.getElementById('date').value = '';
+    document.getElementById('theme').value = '';
+    document.getElementById('text').value = '';
+    document.querySelectorAll('input[name="photos"]').forEach(input => input.value = '');
+    });
+    </script> --}}
+
+
+
+</body>
+
+</html>
