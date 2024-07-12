@@ -1,10 +1,11 @@
 const express = require('express');
 const fileUpload = require('express-fileupload');
-require('dotenv').config();
+
 const app = express();
 const hbs = require('hbs');
 const path = require('path');
-
+require('dotenv').config();
+const fs = require('fs');
 
 
 const { Telegraf } = require('telegraf');
@@ -16,7 +17,7 @@ const token = process.env.BOT_TOKEN;
 const chatId = process.env.CHAT_ID_TISHKOVA;
 
 const bot = new Telegraf(token);
-const port = process.env.SERVER_PORT;
+const port = 3005;
 
 
 // Подключаем handlebars
@@ -51,19 +52,23 @@ app.post('/upload', (req, res) => {
         });
 
     if (!req.files || Object.keys(req.files).length === 0) {
-        return res.status(400).send('Файлы не были загружены');
+        res.render('sucessful.hbs');
     }
     
-    const photos = req.files.photos;
+
+if (req.files) {
     
+    
+     const photos = req.files.photos;
+}
 
     
-    console.log(photos)
+    // console.log(photos)
 
     
 
   
-    if (!Array.isArray(photos)) {
+    if (req.files && !Array.isArray(photos)) {
         // photos = [photos];
    
         const file = req.files.photos;
@@ -93,7 +98,7 @@ app.post('/upload', (req, res) => {
 
 
     ///Для одной фотографии
-if (Array.isArray(photos))  {
+if (req.files && Array.isArray(photos))  {
 
     photos.forEach((file) => {
         const fileName = file.name;
@@ -122,8 +127,9 @@ if (Array.isArray(photos))  {
 
 
 
+
 app.listen(port, () => {
-    console.log('Сервер запущен на порту 3000');
+    console.log(`Сервер запущен на порту ${port}`);
 });
 
 
