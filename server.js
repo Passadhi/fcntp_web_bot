@@ -15,9 +15,10 @@ const token = process.env.BOT_TOKEN;
 
 
 const chatId = process.env.CHAT_ID_TISHKOVA;
+const dotEnvPort = process.env.SERVER_PORT;
 
 const bot = new Telegraf(token);
-const port = 3005;
+
 
 
 // Подключаем handlebars
@@ -56,14 +57,14 @@ app.post('/upload', (req, res) => {
     }
     
 
-if (req.files) {
+// if (req.files) {
     
     
      const photos = req.files.photos;
-}
+// }
 
     
-    // console.log(photos)
+    
 
     
 
@@ -128,8 +129,8 @@ if (req.files && Array.isArray(photos))  {
 
 
 
-app.listen(port, () => {
-    console.log(`Сервер запущен на порту ${port}`);
+app.listen(dotEnvPort, () => {
+    console.log(`Сервер запущен на порту ${dotEnvPort}`);
 });
 
 
